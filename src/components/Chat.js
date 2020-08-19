@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Chat.css'
 import { Avatar, IconButton } from '@material-ui/core'
 import SearchOutlined from '@material-ui/icons/SearchOutlined'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import AttachFile from '@material-ui/icons/AttachFile'
+import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
+import MicIcon from '@material-ui/icons/Mic'
+import {useParams} from 'react-router-dom'
 
 function Chat() {
+    const [input, setInput] = useState('')
+    const { roomId } = useParams();
+
+    const sendMessage = (e) => {
+        e.preventDefault();
+        console.log(input);
+        setInput('');
+    }
+
     return (
         <div className="chat">
             <div className="chat__header">
@@ -37,7 +49,14 @@ function Chat() {
                 </p>
             </div>
             <div className="chat__footer">
-
+                <InsertEmoticonIcon/>
+                <form>
+                    <input placeholder="message" value={input} 
+                        onChange={e => setInput(e.target.value)}   
+                    />
+                    <button onClick={sendMessage} type="submit">Click me</button>
+                </form>
+                <MicIcon/>
             </div>
         </div>
     )
