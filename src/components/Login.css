@@ -12,6 +12,7 @@
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px;
+    max-width: 90vw;
 }
 
 .login__container > img {

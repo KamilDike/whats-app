@@ -6,7 +6,7 @@
 
 .chat__body::-webkit-scrollbar {
     display: none;
-  }
+}
 
 .chat__header {
     height: 40px;
@@ -42,8 +42,9 @@
     background-repeat: repeat;
     background-position: center;
     padding: 30px;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+    overflow: scroll;
 }
 
 .chat__message {

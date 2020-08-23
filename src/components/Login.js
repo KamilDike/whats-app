@@ -4,14 +4,18 @@ import { Button } from '@material-ui/core'
 import { auth, provider } from '../Firebase'
 import { actionTypes } from '../reducer';
 import { useStateValue } from '../StateProvider'
+import { useCookies } from 'react-cookie';
 
 function Login() {
     const [{}, dispatch] = useStateValue();
+    const [cookies, setCookie] = useCookies(['logged']);
 
     const signIn = () => {
         auth
             .signInWithPopup(provider)
             .then((result) => {
+                setCookie('displayName', result.user.displayName)
+                setCookie('photoURL', result.user.photoURL)
                 dispatch({
                     type: actionTypes.SET_USER,
                     user: result.user,

@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import './Chat.css'
-import { Avatar } from '@material-ui/core'
+import { Avatar, Button } from '@material-ui/core'
 import {useParams} from 'react-router-dom'
 import db from '../Firebase'
 import { useStateValue } from '../StateProvider'
 import firebase from 'firebase'
+import { useCookies } from 'react-cookie'
 
-function Chat() {
+function Chat({logout}) {
     const [input, setInput] = useState('')
     const { roomId } = useParams();
     const [roomName, setRoomName] = useState('')
     const [photoId, setPhotoId] = useState('')
     const [messages, setMessages] = useState([])
     const [{user}] = useStateValue();
+
+    const [cookies, setCookie, removeCookie] = useCookies(['logged']);
 
     const sendMessage = (e) => {
         e.preventDefault();
@@ -44,7 +47,14 @@ function Chat() {
         }
     }, [roomId])
 
+    const leave = () => {
+        removeCookie('displayName')
+        removeCookie('photoURL')
+        window.location.reload()
+    }
+
     return (
+        !logout? (
         <div className="chat">
             <div className="chat__header">
                 <Avatar src={`https://avatars.dicebear.com/api/human/${photoId}.svg`}/>
@@ -78,6 +88,15 @@ function Chat() {
                 </form>
             </div>
         </div>
+        ) : (
+            <div className="chat">
+                <div className="chat__header">
+                    <div className="logout" onClick={leave}>
+                        <Button>Logout</Button>
+                    </div>
+                </div>
+            </div>
+        )
     )
 }
 

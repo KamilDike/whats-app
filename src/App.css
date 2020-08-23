@@ -13,3 +13,12 @@
   width: 90vh;
   box-shadow: -1px 4px 20px -6px rgba(0,0,0,0.7);
 }
+
+.logout {
+  margin: 20px auto;
+}
+
+.logout > button {
+  font-weight: 1200;
+  font-size: 26px;
+}
