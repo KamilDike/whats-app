@@ -4,9 +4,8 @@ import { Avatar } from '@material-ui/core'
 import db from '../Firebase'
 import { Link } from 'react-router-dom'
 
-function SidebarChat( {addNewChat, name, id} ) {
+function SidebarChat( {addNewChat, name, id, photoId} ) {
 
-    const [userId, setUserId] = useState("")
     const [messages, setMessages] = useState('');
 
     useEffect(() => {
@@ -18,16 +17,13 @@ function SidebarChat( {addNewChat, name, id} ) {
         }
     }, [id])
 
-    useEffect(() => {
-        setUserId(Math.floor(Math.random() * 5000));
-    }, [])
-
     const createChat = () => {
         const roomName = prompt('Enter name for chat');
 
         if(roomName) {
             db.collection("rooms").add({
                 name: roomName,
+                photoId: Math.floor(Math.random() * 5000)
             })
         }
     };
@@ -35,7 +31,7 @@ function SidebarChat( {addNewChat, name, id} ) {
     return !addNewChat ? (
         <Link to={`/rooms/${id}`}>
             <div className="sidebarChat">
-                <Avatar src={`https://avatars.dicebear.com/api/human/${userId}.svg`}/>
+                <Avatar src={`https://avatars.dicebear.com/api/human/${photoId}.svg`}/>
                 <div className="sidebarChat__info">
                     <h2>{name}</h2>
                     <p>{messages[0]?.message}</p>

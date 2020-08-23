@@ -4,7 +4,12 @@
     flex-direction: column;
 }
 
+.chat__body::-webkit-scrollbar {
+    display: none;
+  }
+
 .chat__header {
+    height: 40px;
     padding: 20px;
     display: flex;
     align-items: center;
@@ -37,7 +42,8 @@
     background-repeat: repeat;
     background-position: center;
     padding: 30px;
-    overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 .chat__message {

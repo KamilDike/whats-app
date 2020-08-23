@@ -8,7 +8,9 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    height: 40px;
     border-right: 1px solid lightgray;
+    cursor: pointer;
 }
 
 .sidebar__headerRight {
@@ -16,11 +18,9 @@
     align-items: center;
     justify-content: space-between;
     min-width: 5vw;
-}
-
-.sidebar__headerRight > .MuiSvgIcon-root {
-    margin-right: 2vw;
-    font-size: 24px !important;
+    padding-left: 20px;
+    font-weight: 600;
+    margin: auto;
 }
 
 .sidebar__search {
@@ -51,5 +51,11 @@
 
 .sidebar__chats {
     flex: 1;
-    overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    border-right: 1px solid lightgray;
+}
+
+.sidebar__chats::-webkit-scrollbar {
+    display: none;
 }
