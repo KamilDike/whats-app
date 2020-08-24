@@ -3,22 +3,14 @@
   place-items: center;
   background-color: #dadbd3;
   height: 100vh;
+  width: 100vw;
 }
 
 .app__body {
   display: flex;
   background-color: #ededed;
-  margin-top: -50px;
-  height: 90vh;
-  width: 90vh;
+  margin-top: -1vh;
+  height: 98vh;
+  width: 98vw;
   box-shadow: -1px 4px 20px -6px rgba(0,0,0,0.7);
-}
-
-.logout {
-  margin: 20px auto;
-}
-
-.logout > button {
-  font-weight: 1200;
-  font-size: 26px;
 }

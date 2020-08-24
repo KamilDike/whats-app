@@ -9,7 +9,7 @@
 }
 
 .chat__header {
-    height: 40px;
+    height: 10vh;
     padding: 20px;
     display: flex;
     align-items: center;
@@ -101,3 +101,12 @@
 .chat__footer > .MuiSvgIcon-root {
     font-size: 16px !important;
 }
+
+.logout {
+    margin: 20px auto;
+  }
+  
+  .logout > button {
+    font-weight: 1200;
+    font-size: 26px;
+  }

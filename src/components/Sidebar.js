@@ -49,7 +49,9 @@ function Sidebar() {
         <div className="sidebar">
             <Link to={"/"}>
                 <div className="sidebar__header" onClick={reloadRooms}>
-                    <Avatar src={user?.photoURL} className="sidebar__headerAvatar"/>
+                    <div className="sidebar__headerLeft">
+                        <Avatar src={user?.photoURL}/>
+                    </div>
                     <div className="sidebar__headerRight">
                         {user?.displayName}
                     </div>
