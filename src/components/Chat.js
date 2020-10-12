@@ -19,7 +19,7 @@ function Chat({logout}) {
 
     const sendMessage = (e) => {
         e.preventDefault();
-        console.log(input);
+        //console.log(input);
 
         db.collection('rooms').doc(roomId).collection('messages').add({
             message: input,

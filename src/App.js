@@ -13,7 +13,7 @@ function App() {
   const [{user}, dispatch] = useStateValue();
 
   useEffect(() => {
-    console.log(cookies)
+    //console.log(cookies)
     if (cookies.displayName) {
       dispatch({
         type: actionTypes.SET_USER,
